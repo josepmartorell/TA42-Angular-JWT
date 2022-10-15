@@ -1,0 +1,29 @@
+<!-- spinner -->
+<div class="overlay" *ngIf="!load">
+  <div class="spinner ">
+    <div class="spinner-border" style="width: 4rem; height: 4rem; color:whitesmoke" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</div>
+<div *ngIf="load">
+</div>
+<!-- spinner -->
+<div class="container custom">
+  <div class="chart">
+    <p>Lista de personajes procedentes de la serie Rick and Morty<br>
+      Puedes crear, editar o eliminar los personajes que desees<br>
+      También al crearlos puedes subir una imagen para personalizarlos :)</p>
+  </div>
+  <div class="custom" *ngFor="let item of listing">
+    <img src="{{item.image}}" class="card-img-top" alt="ID: {{item.id}}">
+    <div class="card-body">
+      <h5 class="card-title"><span style="color: green; font-size: larger;">{{item.name}}</span></h5>
+      <p class="card-text">
+        <span>ORIGIN:&nbsp;{{item.origin}}</span><br>
+        <span>SPECIES:&nbsp;{{item.species}}</span><br>
+        <span>GENDER:&nbsp;{{item.gender}}</span><br><br>
+      </p>
+    </div>
+  </div>
+</div>

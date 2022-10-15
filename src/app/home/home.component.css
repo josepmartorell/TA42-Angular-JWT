@@ -1,0 +1,11 @@
+.custom {
+    font-family: 'Comic Sans MS';
+    font-size: larger;
+    color: whitesmoke;
+    padding-left: 17px;
+  }
+  
+  .chart {
+    margin-left: 17px;
+    font-size: larger;
+  }

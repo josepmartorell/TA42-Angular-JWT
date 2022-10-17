@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Character } from '../interfaces/character.interface';
 
 const apiUrl = 'https://faker-api-rickmorty.herokuapp.com/characters'
 
@@ -11,8 +12,8 @@ export class CharactersService {
 
   constructor(private http:HttpClient) { }
 
-  getAll(): Observable<any[]> {
-    return this.http.get<any[]>(apiUrl);
+  getAll(): Observable<Character[]> {
+    return this.http.get<Character[]>(apiUrl);
   }
 
   get(id:any):Observable<any>{
@@ -31,5 +32,17 @@ export class CharactersService {
     return this.http.delete(`${apiUrl}/${id}`);
   }
 
+  deleteAll(): Observable<any> {
+    return this.http.delete(apiUrl);
+  }
+
+  findByTitle(title: any): Observable<Character[]> {
+    return this.http.get<Character[]>(`${apiUrl}?title=${title}`);
+  }
+
 
 }
+
+
+
+

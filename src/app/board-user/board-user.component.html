@@ -7,23 +7,31 @@
   </div>
 </div>
 <div *ngIf="load">
-</div>
-<!-- spinner -->
-<div class="container custom">
-  <div class="chart">
-    <p>Lista de personajes procedentes de la serie Rick and Morty<br>
-      Puedes crear, editar o eliminar los personajes que desees<br>
-      También al crearlos puedes subir una imagen para personalizarlos :)</p>
-  </div>
-  <div class="custom" *ngFor="let item of listing">
-    <img src="{{item.image}}" class="card-img-top" alt="ID: {{item.id}}">
-    <div class="card-body">
-      <h5 class="card-title"><span style="color: green; font-size: larger;">{{item.name}}</span></h5>
-      <p class="card-text">
-        <span>ORIGIN:&nbsp;{{item.origin}}</span><br>
-        <span>SPECIES:&nbsp;{{item.species}}</span><br>
-        <span>GENDER:&nbsp;{{item.gender}}</span><br><br>
-      </p>
+
+  <div class="container custom">
+    <div>
+      <p>Lista de personajes procedentes de la serie Rick and Morty<br>
+        Pulsa el botón amarillo para crear tu propio personaje para la galería<br>
+        También puedes seleccionar una imagen para personalizarlo :)</p>
     </div>
+    <div class="me-3 mb-3 d-sm-inline-flex" style="width: 18rem;"
+      *ngFor="let item of listing | paginate: {itemsPerPage: 8, currentPage: page}">
+      <img src="{{item.image}}" class="card-img-top me-3" alt="ID: {{item.id}}">
+      <div class="card-body">
+        <button type="button" class="btn btn-warning btn-sm">Edit</button>
+        <h5 class="card-title"><span style="color: white; font-size: larger;">{{item.name}}</span></h5>
+        <p class="card-text">
+          <span>ORIGIN:&nbsp;{{item.origin}}</span><br>
+          <span>SPECIES:&nbsp;{{item.species}}</span><br>
+          <span>GENDER:&nbsp;{{item.gender}}</span><br><br>
+        </p>
+      </div>
+    </div>
+    <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente">
+    </pagination-controls>
+    <button type="button" class="btn btn-warning mb-5" (click)="router.navigate(['/add'])">Crea tu propio
+      personaje!</button>
   </div>
+
+  <!-- spinner -->
 </div>

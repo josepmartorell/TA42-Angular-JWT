@@ -22,10 +22,13 @@ export class CharacterListComponent implements OnInit {
       .subscribe(res => {
         this.listing = res;
         console.log(res);
-        const code = 5;
-        console.error('error', code); // Prints: error 5, to stderr
+      },
+      (error) => {
+        console.log('Error', error);
       });
-
+      
 
   }
+
+
 }

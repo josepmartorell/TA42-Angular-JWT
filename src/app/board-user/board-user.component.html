@@ -15,10 +15,10 @@
         También puedes seleccionar una imagen para personalizarlo :)</p>
     </div>
     <div class="me-3 mb-3 d-sm-inline-flex" style="width: 18rem;"
-      *ngFor="let item of listing | paginate: {itemsPerPage: 8, currentPage: page}">
+      *ngFor="let item of listing | paginate: {itemsPerPage: 8, currentPage: page};" i=index;>
       <img src="{{item.image}}" class="card-img-top me-3" alt="ID: {{item.id}}">
       <div class="card-body">
-        <button type="button" class="btn btn-warning btn-sm">Edit</button>
+        <button type="button" class="btn btn-warning btn-sm" [routerLink]="['/characters/', item.id]">Edit</button>
         <h5 class="card-title"><span style="color: white; font-size: larger;">{{item.name}}</span></h5>
         <p class="card-text">
           <span>ORIGIN:&nbsp;{{item.origin}}</span><br>

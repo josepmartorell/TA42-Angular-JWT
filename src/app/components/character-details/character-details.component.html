@@ -1,1 +1,80 @@
-<p>character-details works!</p>
+<div class="custom">
+    <p>En este panel puedes hace editar el personaje que has elegido<br>
+        Modifica los campos con los atributos oara hacer update<br>
+        o bien pulsa el botón borrar para eliminarlo de la galería! :)</p>
+
+    <!-- centramos el panel -->
+    <div class="container text-center mt-5">
+
+        <!-- formulario -->
+        <form>
+            <div class="row mb-3">
+                <label for="inputName" class="col-sm-2 col-form-label">NAME</label>
+                <div class="col-sm-10">
+                    <input type="name" class="form-control" id="inputName" name="name" required
+                        [(ngModel)]="character.name">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputOrigin" class="col-sm-2 col-form-label">ORIGIN</label>
+                <div class="col-sm-10">
+                    <input type="origin" class="form-control" id="inputOrigin" name="origin" required
+                        [(ngModel)]="character.origin">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputSpecies" class="col-sm-2 col-form-label">SPECIES</label>
+                <div class="col-sm-10">
+                    <input type="species" class="form-control" id="inputSpecies" name="species" required
+                        [(ngModel)]="character.species">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputGender" class="col-sm-2 col-form-label">GENDER</label>
+                <div class="col-sm-10">
+                    <input type="gender" class="form-control" id="inputGender" name="gender" required
+                        [(ngModel)]="character.gender">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputImage" class="col-sm-2 col-form-label">IMAGE</label>
+                <div class="col-sm-10">
+                    <select class="form-select" aria-label="Image gallery" name="image" required
+                        [(ngModel)]="character.image">
+                        <option
+                            value="https://antiquotidian.com/wp/wp-content/uploads/2017/01/spydir-profile-picture-in-the-style-of-rick-and-morty.jpg">
+                            Human/Male</option>
+                        <option
+                            value="http://pm1.narvii.com/7275/e8472fc0030536bddf47895e887527bf5f4027c6r1-333-333v2_00.jpg">
+                            Human/Female</option>
+                        <option
+                            value="https://cutewallpaper.org/21/rick-and-morty-profile-pic/Rick-Morty-Profile-Prototype-Luke-Hedger-Observable.jpeg">
+                            Alien</option>
+                        <option
+                            value="https://cdn.dribbble.com/users/5204250/screenshots/18519357/media/776c92ed361b34d210041663ed1b1f7b.jpg?compress=1&resize=400x300">
+                            Robot</option>
+                        <option
+                            value="https://frases.top/wp-content/uploads/2021/08/las-mejores-fotos-de-perfil-para-whatsapp.jpg">
+                            Gustavo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputOrigin" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-1">
+                    <button type="submit" class="btn btn-primary" (click)="updateCharacter()">UPDATE</button>
+                </div>
+                <div class="col-sm-1">
+                    <button type="submit" class="btn btn-danger" (click)="deleteCharacter()">DELETE</button>
+                </div>
+                <div class="col-sm-8">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button class="btn btn-success" type="button" (click)="router.navigate(['/user'])">GO
+                            BACK</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!-- cerramos centrado panel -->
+    </div>

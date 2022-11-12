@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Character } from '../interfaces/character.interface';
 
-const apiUrl = 'https://faker-api-rickmorty.herokuapp.com/characters'
+const apiUrl = 'https://fakerapi-rickmorty.herokuapp.com/characters'
 
 @Injectable({
   providedIn: 'root'
